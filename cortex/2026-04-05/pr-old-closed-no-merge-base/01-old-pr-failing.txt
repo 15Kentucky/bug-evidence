@@ -1,0 +1,28 @@
+[PR] Pull Request #1
+========================================
+Repository: CortexLM/cortex
+
+Title: feat(cli): add Cortex CLI agent-native development tool
+Author: @echobt
+State: closed (as of 2026-04-05 00:35:00 UTC)
+Base: main ← Head: feat/cortex-cli-migration
+
+Description:
+  ## Summary
+
+Complete implementation of the Cortex CLI - an agent-native development tool for the terminal.
+
+## Changes
+
+This PR adds the full Cortex CLI codebase including:
+
+### Core Features
+- **TUI Framework**: Custom reactive terminal UI framework with component system
+- **Multi-Provider AI**: Support for Anthropic, OpenAI, Groq, Google, and other providers
+- **MCP Support**: Model Context Protocol client and server implementation
+- **Plugin Architecture**: Extensible plugin system for custom...
+
+Fetching PR diff...
+
+Error: Failed to get diff: fatal: main...pr-1: no merge base
+
