@@ -1,0 +1,4 @@
+{
+  "error": "No MCP server named 'missing-server' found"
+}
+Error: No MCP server named 'missing-server' found

@@ -1,0 +1,30 @@
+Show details for a configured MCP server
+
+Usage: cortex.exe mcp get [OPTIONS] <NAME>
+
+Arguments:
+  <NAME>
+          Name of the MCP server to display
+
+Options:
+      --json
+          Output the server configuration as JSON
+
+  -v, --verbose
+          Enable verbose output (same as --log-level debug)
+
+      --trace
+          Enable trace-level logging for debugging
+
+      --color <COLOR>
+          Control color output: auto (default), always, or never
+
+          Possible values:
+          - auto:   Automatically detect if output is a terminal
+          - always: Always output with colors
+          - never:  Never output with colors
+          
+          [default: auto]
+
+  -h, --help
+          Print help (see a summary with '-h')

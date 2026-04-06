@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "transport": {
+    "type": "http",
+    "url": "https://example.com/mcp"
+  }
+}
