@@ -1,0 +1,4 @@
+wasm32-wasip1
+wasm32-wasip1-threads
+wasm32-wasip2
+wasm32-wasip3

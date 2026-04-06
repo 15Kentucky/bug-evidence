@@ -1,0 +1,2 @@
+Warning: Detected C/POSIX locale which may cause UTF-8 encoding issues.
+Recommendation: Set LANG=en_US.UTF-8 before running cortex for proper UTF-8 support.

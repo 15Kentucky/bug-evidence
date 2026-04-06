@@ -1,0 +1,98 @@
+[
+  {
+    "description": "Get compiler and linter diagnostics for a file or workspace. Supports Rust, Python, JavaScript/TypeScript, and Go.",
+    "name": "LspDiagnostics"
+  },
+  {
+    "description": "Ask the user a series of questions to gather requirements. Each question can have predefined options or allow free text input. Use this tool when you need to collect structured information from the user.",
+    "name": "Questions"
+  },
+  {
+    "description": "Search for symbols (functions, classes, types, etc.) in the workspace. Use for navigating large codebases.",
+    "name": "LspSymbols"
+  },
+  {
+    "description": "High-performance file content search. Searches for patterns in file contents with regex support.",
+    "name": "Grep"
+  },
+  {
+    "description": "Present a comprehensive implementation plan with multi-agent expert analysis for user approval. Include security, architecture, performance, and other expert perspectives.",
+    "name": "Plan"
+  },
+  {
+    "description": "Edit multiple files in a single operation. More efficient than multiple Edit calls when making related changes across files. This tool ensures atomic application - either all edits succeed or none are applied.",
+    "name": "MultiEdit"
+  },
+  {
+    "description": "Scrapes content from URLs and returns the contents. Improved version with better markdown conversion and metadata extraction.",
+    "name": "WebFetch"
+  },
+  {
+    "description": "Search for files matching a pattern.",
+    "name": "SearchFiles"
+  },
+  {
+    "description": "Read the contents of a file. By default reads entire file, but for large files results are truncated. Use offset and limit for specific portions. Requires absolute file paths.",
+    "name": "Read"
+  },
+  {
+    "description": "Read the current todo list to see progress and remaining tasks.",
+    "name": "TodoRead"
+  },
+  {
+    "description": "Apply changes to files using a unified diff format. Supports creating, modifying, and deleting files.",
+    "name": "ApplyPatch"
+  },
+  {
+    "description": "List the contents of a directory with optional pattern-based filtering. Prefer usage of Grep and Glob tools for more targeted searches. Requires absolute directory paths.",
+    "name": "LS"
+  },
+  {
+    "description": "Advanced file path search using glob patterns with multiple pattern support and exclusions.",
+    "name": "Glob"
+  },
+  {
+    "description": "Scrapes content from URLs and returns the contents. Use for fetching web pages, API responses, and documents.",
+    "name": "FetchUrl"
+  },
+  {
+    "description": "Delegate a task to a custom agent. The agent executes autonomously and returns the result. Use this to offload specialized subtasks to purpose-built agents. Custom agents are defined in .cortex/agents/ (project-level) or ~/.cortex/agents/ (personal).\n\n## When to Use\n- Offloading specialized subtasks to custom agents\n- Tasks requiring specific agent expertise\n- Parallel work on independent subtasks\n- Fire-and-forget background tasks\n\n## Examples\n\n### Basic Delegation\n```json\n{\n  \"agent\": \"code-reviewer\",\n  \"task\": \"Review the authentication module for security vulnerabilities and suggest improvements\"\n}\n```\n\n### With Context\n```json\n{\n  \"agent\": \"documentation-writer\",\n  \"task\": \"Generate API documentation for all endpoints\",\n  \"context\": \"The API uses OpenAPI 3.0 spec. Focus on request/response examples.\"\n}\n```\n\n### Fire-and-Forget\n```json\n{\n  \"agent\": \"background-optimizer\",\n  \"task\": \"Optimize database indexes\",\n  \"await_result\": false\n}\n```\n\n## Best Practices\n1. Ensure the agent exists before delegating\n2. Be specific about expected inputs and outputs\n3. Provide relevant context for better results\n4. Use await_result=false for long-running background tasks\n5. Check agent capabilities before delegation",
+    "name": "Task"
+  },
+  {
+    "description": "Draft and maintain a structured todo list for the current coding session. Helps organize multi-step work and track progress.",
+    "name": "TodoWrite"
+  },
+  {
+    "description": "List available subagent types and their capabilities. Use this to understand what specialized agents are available for task delegation.",
+    "name": "ListSubagents"
+  },
+  {
+    "description": "Execute a specialized skill within the conversation. Skills provide domain-specific capabilities like browser automation, API testing, or data processing. Only use skills listed in available_skills.",
+    "name": "UseSkill"
+  },
+  {
+    "description": "Execute a shell command on the local system. Use for running CLI tools, scripts, and system commands. Long-running processes may timeout.",
+    "name": "Execute"
+  },
+  {
+    "description": "Execute multiple tools in parallel for improved performance. Use this when you need to perform several independent operations simultaneously. Maximum 10 tools per batch. Each tool runs concurrently, significantly reducing total execution time compared to sequential calls. Task tools are allowed for parallel task execution. Cannot call Batch recursively or Agent tools.",
+    "name": "Batch"
+  },
+  {
+    "description": "Creates a new file on the file system with the specified content. Prefer editing existing files unless you need to create a new file.",
+    "name": "Create"
+  },
+  {
+    "description": "Search the web for information using Exa AI. Returns relevant results from the internet.",
+    "name": "WebSearch"
+  },
+  {
+    "description": "Get type information and documentation for a symbol at a specific position. Useful for understanding code.",
+    "name": "LspHover"
+  },
+  {
+    "description": "Edit the contents of a file by finding and replacing text. The old_str must be unique in the file, or change_all must be true.",
+    "name": "Edit"
+  }
+]

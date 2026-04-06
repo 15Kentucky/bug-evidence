@@ -1,0 +1,12 @@
+Creating new plugin: Demo Plugin 2
+  Directory: C:\Users\DELL\Desktop\ClaudeFelly\hunt-20260405-lowtraffic\work\demo-plugin-2
+  Author: Nathan
+  Template: Basic Rust
+
+Plugin created successfully!
+
+Next steps:
+  cd demo-plugin-2
+  cargo build --target wasm32-wasi --release
+  cortex plugin validate
+  cortex plugin dev --watch

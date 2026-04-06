@@ -1,0 +1,181 @@
+Execute in headless mode (for CI/CD, scripts, automation)
+
+Usage: Cortex.exe exec [OPTIONS] [PROMPT]...
+
+Options:
+      --trace
+          Enable trace-level logging for debugging
+
+      --color <COLOR>
+          Control color output: auto (default), always, or never
+
+          Possible values:
+          - auto:   Automatically detect if output is a terminal
+          - always: Always output with colors
+          - never:  Never output with colors
+          
+          [default: auto]
+
+  -h, --help
+          Print help (see a summary with '-h')
+
+🚀 Execution:
+  -f, --file <PATH>
+          Read prompt from file
+
+  -o, --output-format <OUTPUT_FORMAT>
+          Output format
+
+          Possible values:
+          - text:           Human-readable text output (default)
+          - json:           Structured JSON output with final result
+          - stream-json:    Streaming JSON Lines showing execution in real-time. Each line is a
+            separate JSON event
+          - debug:          Deprecated alias for stream-json
+          - stream-jsonrpc: JSON-RPC streaming protocol for multi-turn conversations. Reads JSONL
+            from stdin, outputs JSON-RPC responses
+          
+          [default: text]
+
+      --input-format <INPUT_FORMAT>
+          Input format (for multi-turn sessions)
+
+          Possible values:
+          - text:           Standard text input (default)
+          - stream-jsonrpc: JSON-RPC streaming for multi-turn sessions
+          
+          [default: text]
+
+      --auto <AUTONOMY>
+          Autonomy level for operations. - read-only: No modifications (default, safest) - low:
+          Basic file operations only - medium: Package install, builds, local git - high: Full
+          access including git push
+
+          Possible values:
+          - read-only: Read-only mode (default). No file modifications or command execution. Safe
+            for reviewing planned changes without execution
+          - low:       Low-risk operations. Enables basic file operations while blocking system
+            changes. Good for: documentation updates, code formatting, adding comments
+          - medium:    Development operations. Adds package installation, builds, local git
+            operations. Good for: local development, testing, dependency management
+          - high:      Production operations. Enables git push, deployments, sensitive operations.
+            Good for: CI/CD pipelines, automated deployments
+
+      --skip-permissions-unsafe
+          Skip ALL permission checks (DANGEROUS). Only use in completely isolated environments like
+          Docker containers. Cannot be combined with --auto
+
+  -m, --model <MODEL>
+          Model ID to use
+
+      --spec-model <SPEC_MODEL>
+          Model ID to use for spec mode
+
+      --use-spec
+          Start in specification mode (plan before executing)
+
+  -r, --reasoning-effort <REASONING_EFFORT>
+          Reasoning effort level
+
+  -s, --session-id <SESSION_ID>
+          Session ID to continue (requires a prompt)
+
+      --enabled-tools <ENABLED_TOOLS>
+          Enable specific tools (comma or space separated)
+
+      --disabled-tools <DISABLED_TOOLS>
+          Disable specific tools (comma or space separated)
+
+      --list-tools
+          List available tools for the selected model and exit
+
+      --cwd <PATH>
+          Working directory path
+
+      --max-turns <MAX_TURNS>
+          Maximum number of turns before stopping
+          
+          [default: 100]
+
+      --timeout <TIMEOUT>
+          Timeout in seconds (0 for no timeout)
+          
+          [default: 600]
+
+  -i, --image <IMAGES>
+          Image files to attach to the prompt
+
+  -v, --verbose
+          Verbose output (show tool calls, reasoning)
+
+      --system <SYSTEM_PROMPT>
+          Custom system prompt to use instead of the default. Defines the AI's persona and behavior
+          for this execution
+
+      --max-tokens <MAX_TOKENS>
+          Maximum tokens for response generation. Limits the length of the AI's response
+
+      --echo
+          Include the prompt in the output (echo mode). When enabled, the original prompt will be
+          included at the beginning of the response
+
+      --user <USER_ID>
+          User identifier for tracking and rate limiting. This ID is passed to the API for usage
+          tracking purposes
+
+      --suffix <TEXT>
+          Suffix text for completion insertion mode. The model will generate text to insert between
+          the prompt and this suffix
+
+      --response-format <FORMAT>
+          Response format for structured output. Valid values: text, json, json_object
+
+      --url <URL>
+          URLs to fetch and include in the context. Content from these URLs will be fetched and
+          added to the prompt
+
+      --clipboard
+          Read input from the system clipboard. The clipboard content will be appended to the prompt
+
+      --git-diff
+          Include current git diff in the context. Useful for code review tasks
+
+      --include <PATTERN>
+          Include only files matching these patterns. Supports glob patterns like "*.py" or
+          "src/**/*.rs"
+
+      --exclude <PATTERN>
+          Exclude files matching these patterns. Supports glob patterns like "*.test.js" or
+          "node_modules/**"
+
+      --frequency-penalty <FREQUENCY_PENALTY>
+          Frequency penalty (-2.0 to 2.0). Positive values penalize tokens based on their frequency
+          in the text so far, decreasing the likelihood of repeating the same content verbatim
+
+      --presence-penalty <PRESENCE_PENALTY>
+          Presence penalty (-2.0 to 2.0). Positive values penalize new tokens based on whether they
+          appear in the text so far, increasing the likelihood of talking about new topics
+
+      --stop <STOP_SEQUENCES>
+          Stop sequences (can be specified multiple times). Generation will stop when any of these
+          sequences is encountered
+
+      --logprobs <LOGPROBS>
+          Request log probabilities for output tokens. Returns the log probabilities of the most
+          likely tokens (up to 5)
+
+  -n, --n <NUM_COMPLETIONS>
+          Number of completions to generate. Returns multiple independent completions for the same
+          prompt
+
+      --best-of <BEST_OF>
+          Generate best_of completions and return the best one. Must be greater than n if n is
+          specified
+
+      --output-schema <SCHEMA>
+          JSON schema for structured output. Can be inline JSON (e.g.,
+          '{"type":"object","properties":{...}}') or a path to a JSON schema file
+
+  [PROMPT]...
+          The prompt to execute. Can also be provided via stdin or --file. Prompts starting with a
+          dash (e.g., "--help explain this") are supported
